@@ -1,4 +1,5 @@
 
+
 body{
     /* background-color: #000010; */
     background-image: url("https://i.pinimg.com/originals/33/d5/f1/33d5f1c660d982c5e7b678e96306097d.jpg");
@@ -18,6 +19,9 @@ body{
     border: inset whitesmoke;
     margin:2%;
 }
+.wht{
+    background-color: white;
+}
 .bb{
     
     background-repeat: no-repeat;
@@ -25,7 +29,10 @@ body{
      grid-column: 1;
      grid-auto-flow: row;
      position: fixed center;
-     justify-content: center;        
+     justify-content: center;
+    
+        
+        
     
 }
 .containe{
@@ -33,19 +40,18 @@ body{
     background-blend-mode: luminosity;
     background: gainsboro ;
     opacity: 70%;
-    width:  360px ;
-    height: 360px ;
+    width:  540px ;
+    height: 540px ;
    border:  5px black solid inset;
     border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
     
-    margin-top: 15%;
-    margin-bottom: 10%;
+    margin-top: 5%;
      
    
 }
-h6{
+h5{
     position: fixed;
     left: 0;
     bottom: 0;
@@ -55,35 +61,42 @@ h6{
 .btn
 {
     display: flex;
-   width:360px;
+   width:540px;
    flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     margin-top: 4%;
     margin-bottom: 5%;
     column-gap: 40px;
-    opacity: 80%;
     
+}
+.act{
+    background-color:lightgray;
+    color:black;
+}
+.alt{
+    background-color: red;
+    color:black;
 }
 .box{   
     box-sizing: border-box;
-    height:40px ;
-    width: 40px ;
+    height:60px ;
+    width: 60px ;
     border: 1px black solid;
     border-radius: 10px;
-    background-color: rgb(241, 255, 241);
+    /* background-color: rgb(241, 255, 241); */
     text-align: center;
     text-decoration-color: black;
     text-transform: capitalize;
     text-shadow: 2px 2px 5px black;
-    font-size: 20px;
+    font-size: 40px;
     
 }
 
 .boxt{
      
     border-top: 4px black solid;
-    background-color: rgb(241, 255, 241);
+    /* background-color: rgb(241, 255, 241); */
     display: flex;
     justify-content: center;
     justify-items: center;
@@ -91,17 +104,17 @@ h6{
 .rowl{
  
     border-left: 4px black solid;
-    background-color: rgb(241, 255, 241);
+    /* background-color: rgb(241, 255, 241); */
 }
 .rowr{
     
    
     border-right: 4px black solid;
-    background-color: rgb(241, 255, 241);
+    /* background-color: rgb(241, 255, 241); */
 }
 .boxl{
      
   
     border-bottom: 4px black solid;
-    background-color: rgb(241, 255, 241);
+    /* background-color: rgb(241, 255, 241); */
 }
