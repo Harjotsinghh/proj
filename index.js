@@ -28,24 +28,61 @@ function updateboard(board)
         {
             if(board[i][j]!=0)
             {
+                
                 ids[i][j].value=board[i][j];
+                
+
             }
             else
-               ids[i][j].innerText='';
+               ids[i][j].value='';
         }
     }
 }
-// for(var i=0;i<9;i++)
-// {
-//     for(var j=0;j<9;j++)
-//     {
-//         ids[i][j].addEventListener('input',(e)=>{
-          
+function updateboard1(board)
+{
+    for(var i=0;i<9;i++)
+    {
+        for(var j=0;j<9;j++)
+        {
+            if(board[i][j]!=0)
+            {
+                ids[i][j].classList.add("act");
+                ids[i][j].value=board[i][j];
+                ids[i][j].disabled=true;
 
-//         })
-//     }
-// }
+            }
+            else
+               ids[i][j].value='';
+        }
+    }
+}
 
+function check(board)
+{
+for (var i = 0; i < 9; i++) {
+    for (var j = 0; j < 9; j++) {
+           if(ids[i][j].value=='')
+            board[i][j]=0;
+            else
+            {
+              if(ids[i][j].value<'0'||ids[i][j].value>'9')
+              {
+                  ids[i][j].classList.add("alt");
+                  alert("Enter no between 0 and 9");
+                  return false;
+              }
+              else
+              {
+                ids[i][j].classList.add("act");
+            board[i][j]=ids[i][j].value;
+            
+              }
+            }
+
+    }
+}
+return true;
+}
 
 
 let button=document.getElementById('gen')
@@ -65,9 +102,9 @@ button.onclick = function () {
         var response = JSON.parse(xhrRequest.response)
         console.log(response)
         board = response.board
-        updateboard(board)
+        updateboard1(board)
     }
-    xhrRequest.open('get', 'https://sugoku.herokuapp.com/board?difficulty=medium')
+    xhrRequest.open('get', 'https://sugoku.herokuapp.com/board?difficulty=easy')
     xhrRequest.send()
     flag=true;
 }
@@ -131,7 +168,10 @@ function solve(board,row,col)
               
               board[row][col]=i;
               if(solve(board,row,col+1))
+              {
+                
                 return true;
+              }
               board[row][col]=0;
           }
     }
@@ -145,12 +185,23 @@ clear.onclick=function()
         for (var j = 0; j < 9; j++) {
             ids[i][j].value='';
             board[i][j]=0;
+            ids[i][j].disabled=false;
+            ids[i][j].classList.remove("alt");
+            ids[i][j].classList.remove("act");
+           
         }
     }
     
 
 }
 sol.onclick=function(){
-    
-    solvethesuduko(board);
+   var re= check(board);
+   if(!re)
+    return;
+    var ans=solvethesuduko(board);
+    if(ans==false)
+    {
+        alert("incorrect input");
+        clear(board);
+    }
 }
